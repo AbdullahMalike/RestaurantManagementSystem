@@ -1,5 +1,6 @@
                Food Delivery:
 
+
 -> bagger pack items for customer
 -> check all items is included in parcel then forward to rider
 -> if some item is missing then add items in parcel and then forward to rider.
@@ -7,6 +8,8 @@
 -> when rider place the order to customer check the invoice payment method 
 ->if payment method payment on delivery so collect the payment
 -> if payment is already done by credit card then place the order to customer.
+ 
+
 
 
            party reservation table:
@@ -16,6 +19,5 @@
 -> if seats are availabe then display message "Reserve Successfully"
 -> if seats are not available then display "No seats available for reservation"
 -> Navigate the resturant menu + add special items for party 
--> select decoration system for party + select type of party 
- (for example birthday, anniversory)
+-> select decoration type for party (for example birthday, anniversory)
 -> generate bill.
