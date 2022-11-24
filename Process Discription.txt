@@ -1,1 +1,25 @@
-No Changes
+FOOD ORDER PROCESS DESCRIPTION:
+•	Create an account. 
+• Manage their account. 
+• Log in to the system.
+ • Navigate the restaurant’s menu.
+  • Select an item from the menu.
+ • Add an item to their current order. 
+• Review their current order.
+ • Remove an item/remove all items from their current order. 
+• Provide payment details. 
+• Place an order. 
+• Receive confirmation in the form of an order number.
+ • View order placed
+TABLE RESERVATION PROCESS DESCRIPTION:
+•	Login in to system.
+•	Navigate the restaurant’s menu.
+•	Select your desired restaurant.
+•	Select your desired time+ table+ number of seats.
+•	Check the availability of table, time, number of seats that the seat is available 
+•	If the selected time or  day by the customer.if seat are not available at that time then it will move to waiting and then again repeat the previous step.
+•	If the seat is available then your seat is reserved
+•	Receive confirmation in the form of an table number
+
+
+
