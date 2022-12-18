@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://restaurantmanagementsystem" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://restaurantmanagementsystem" xmlns:intf="http://restaurantmanagementsystem" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://restaurantmanagementsystem" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="addnewuser">
+    <complexType>
+     <sequence>
+      <element name="userID" type="xsd:int"/>
+      <element name="Username" type="xsd:string"/>
+      <element name="phonenumber" type="xsd:long"/>
+      <element name="DOB" type="xsd:string"/>
+      <element name="gender" type="xsd:string"/>
+      <element name="email" type="xsd:string"/>
+      <element name="city" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addnewuserResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="addnewuserResponse">
+
+      <wsdl:part element="impl:addnewuserResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addnewuserRequest">
+
+      <wsdl:part element="impl:addnewuser" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="register">
+
+      <wsdl:operation name="addnewuser">
+
+         <wsdl:input message="impl:addnewuserRequest" name="addnewuserRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addnewuserResponse" name="addnewuserResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="registerSoapBinding" type="impl:register">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="addnewuser">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addnewuserRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addnewuserResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="registerService">
+
+      <wsdl:port binding="impl:registerSoapBinding" name="register">
+
+         <wsdlsoap:address location="http://localhost:8080/restaurantmanagementsystem/services/register"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

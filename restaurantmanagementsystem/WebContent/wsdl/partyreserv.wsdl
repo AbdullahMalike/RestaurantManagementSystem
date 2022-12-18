@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://restaurantmanagementsystem" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://restaurantmanagementsystem" xmlns:intf="http://restaurantmanagementsystem" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://restaurantmanagementsystem" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="addpartyres">
+    <complexType>
+     <sequence>
+      <element name="partyid" type="xsd:int"/>
+      <element name="Username" type="xsd:string"/>
+      <element name="ContactNo" type="xsd:long"/>
+      <element name="arrivaldate" type="xsd:string"/>
+      <element name="Arrivaltime" type="xsd:string"/>
+      <element name="decorationtype" type="xsd:string"/>
+      <element name="totalmembers" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addpartyresResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="addpartyresResponse">
+
+      <wsdl:part element="impl:addpartyresResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addpartyresRequest">
+
+      <wsdl:part element="impl:addpartyres" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="partyreserv">
+
+      <wsdl:operation name="addpartyres">
+
+         <wsdl:input message="impl:addpartyresRequest" name="addpartyresRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addpartyresResponse" name="addpartyresResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="partyreservSoapBinding" type="impl:partyreserv">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="addpartyres">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addpartyresRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addpartyresResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="partyreservService">
+
+      <wsdl:port binding="impl:partyreservSoapBinding" name="partyreserv">
+
+         <wsdlsoap:address location="http://localhost:8080/restaurantmanagementsystem/services/partyreserv"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

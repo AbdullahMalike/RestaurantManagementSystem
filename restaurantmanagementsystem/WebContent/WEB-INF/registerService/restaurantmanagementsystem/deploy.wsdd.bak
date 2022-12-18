@@ -1,0 +1,36 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from registerService WSDL service -->
+
+  <service name="register" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://restaurantmanagementsystem"/>
+      <parameter name="wsdlServiceElement" value="registerService"/>
+      <parameter name="schemaQualified" value="http://restaurantmanagementsystem"/>
+      <parameter name="wsdlServicePort" value="register"/>
+      <parameter name="className" value="restaurantmanagementsystem.RegisterSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="register"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="addnewuser" qname="operNS:addnewuser" xmlns:operNS="http://restaurantmanagementsystem" soapAction="" >
+        <parameter qname="pns:userID" xmlns:pns="http://restaurantmanagementsystem" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Username" xmlns:pns="http://restaurantmanagementsystem" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:phonenumber" xmlns:pns="http://restaurantmanagementsystem" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:DOB" xmlns:pns="http://restaurantmanagementsystem" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:gender" xmlns:pns="http://restaurantmanagementsystem" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:email" xmlns:pns="http://restaurantmanagementsystem" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:city" xmlns:pns="http://restaurantmanagementsystem" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:password" xmlns:pns="http://restaurantmanagementsystem" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="addnewuser"/>
+
+  </service>
+</deployment>

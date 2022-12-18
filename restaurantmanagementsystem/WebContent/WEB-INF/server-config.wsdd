@@ -1,0 +1,134 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="C:\eclipse-jee-oxygen-R-win32-x86_64\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\restaurantmanagementsystem\WEB-INF\attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:service name="partymenu" provider="java:RPC" style="wrapped" use="literal">
+  <ns2:operation name="partmenu" qname="ns1:partmenu" returnQName="ns1:partmenuReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://restaurantmanagementsystem" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:PartyMenuID" type="xsd:int"/>
+  </ns2:operation>
+  <ns1:parameter name="allowedMethods" value="partmenu"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="partymenu"/>
+  <ns1:parameter name="className" value="restaurantmanagementsystem.partymenu"/>
+  <ns1:parameter name="wsdlServicePort" value="partymenu"/>
+  <ns1:parameter name="schemaQualified" value="http://restaurantmanagementsystem"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://restaurantmanagementsystem"/>
+  <ns1:parameter name="wsdlServiceElement" value="partymenuService"/>
+ </ns1:service>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:service name="partyreserv" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="addpartyres" qname="ns2:addpartyres" soapAction="" xmlns:ns2="http://restaurantmanagementsystem">
+   <ns1:parameter qname="ns2:partyid" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns2:Username" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns2:ContactNo" type="xsd:long" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns2:arrivaldate" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns2:Arrivaltime" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns2:decorationtype" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns2:totalmembers" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="addpartyres"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="partyreserv"/>
+  <ns1:parameter name="className" value="restaurantmanagementsystem.partyreserv"/>
+  <ns1:parameter name="wsdlServicePort" value="partyreserv"/>
+  <ns1:parameter name="schemaQualified" value="http://restaurantmanagementsystem"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://restaurantmanagementsystem"/>
+  <ns1:parameter name="wsdlServiceElement" value="partyreservService"/>
+ </ns1:service>
+ <ns1:service name="restmenu" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="menu" qname="ns3:menu" returnQName="ns3:menuReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://restaurantmanagementsystem" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns3:menuid" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="menu"/>
+  <ns1:parameter name="wsdlPortType" value="restmenu"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="schemaQualified" value="http://restaurantmanagementsystem"/>
+  <ns1:parameter name="wsdlServicePort" value="restmenu"/>
+  <ns1:parameter name="className" value="restaurantmanagementsystem.restmenu"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://restaurantmanagementsystem"/>
+  <ns1:parameter name="wsdlServiceElement" value="restmenuService"/>
+ </ns1:service>
+ <ns1:service name="register" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="addnewuser" qname="ns4:addnewuser" soapAction="" xmlns:ns4="http://restaurantmanagementsystem">
+   <ns1:parameter qname="ns4:userID" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns4:Username" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns4:phonenumber" type="xsd:long" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns4:DOB" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns4:gender" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns4:email" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns4:city" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns4:password" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="addnewuser"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="register"/>
+  <ns1:parameter name="className" value="restaurantmanagementsystem.register"/>
+  <ns1:parameter name="wsdlServicePort" value="register"/>
+  <ns1:parameter name="schemaQualified" value="http://restaurantmanagementsystem"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://restaurantmanagementsystem"/>
+  <ns1:parameter name="wsdlServiceElement" value="registerService"/>
+ </ns1:service>
+ <ns1:service name="order" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="addorder" qname="ns5:addorder" soapAction="" xmlns:ns5="http://restaurantmanagementsystem">
+   <ns1:parameter qname="ns5:orderID" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns5:Name" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns5:FoodName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns5:Quantity" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns5:Contact" type="xsd:long" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="addorder"/>
+  <ns1:parameter name="wsdlPortType" value="order"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="schemaQualified" value="http://restaurantmanagementsystem"/>
+  <ns1:parameter name="wsdlServicePort" value="order"/>
+  <ns1:parameter name="className" value="restaurantmanagementsystem.order"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://restaurantmanagementsystem"/>
+  <ns1:parameter name="wsdlServiceElement" value="orderService"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>

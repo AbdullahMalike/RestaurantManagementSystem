@@ -1,0 +1,33 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from orderService WSDL service -->
+
+  <service name="order" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://restaurantmanagementsystem"/>
+      <parameter name="wsdlServiceElement" value="orderService"/>
+      <parameter name="schemaQualified" value="http://restaurantmanagementsystem"/>
+      <parameter name="wsdlServicePort" value="order"/>
+      <parameter name="className" value="restaurantmanagementsystem.OrderSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="order"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="addorder" qname="operNS:addorder" xmlns:operNS="http://restaurantmanagementsystem" soapAction="" >
+        <parameter qname="pns:orderID" xmlns:pns="http://restaurantmanagementsystem" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Name" xmlns:pns="http://restaurantmanagementsystem" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:FoodName" xmlns:pns="http://restaurantmanagementsystem" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Quantity" xmlns:pns="http://restaurantmanagementsystem" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Contact" xmlns:pns="http://restaurantmanagementsystem" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="addorder"/>
+
+  </service>
+</deployment>
