@@ -1,0 +1,33 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from tablereservationService WSDL service -->
+
+  <service name="tablereservation" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://restaurantsystem"/>
+      <parameter name="wsdlServiceElement" value="tablereservationService"/>
+      <parameter name="schemaQualified" value="http://restaurantsystem"/>
+      <parameter name="wsdlServicePort" value="tablereservation"/>
+      <parameter name="className" value="restaurantsystem.TablereservationSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="tablereservation"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="tableres" qname="operNS:tableres" xmlns:operNS="http://restaurantsystem" soapAction="" >
+        <parameter qname="pns:Name" xmlns:pns="http://restaurantsystem" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Members" xmlns:pns="http://restaurantsystem" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Date" xmlns:pns="http://restaurantsystem" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:TotalSeats" xmlns:pns="http://restaurantsystem" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:ID" xmlns:pns="http://restaurantsystem" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="tableres"/>
+
+  </service>
+</deployment>

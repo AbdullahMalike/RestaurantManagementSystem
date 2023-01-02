@@ -1,0 +1,31 @@
+@charset "ISO-8859-1";
+.imageedit{
+    width: 6%;
+}
+.editbanner{
+    height: 85vh;
+    width: 100%;
+    background-image: url('https://th.bing.com/th/id/R.5206007aae3d36edd4b65cc3d7313cfe?rik=tN0myEB0iIYchw&riu=http%3a%2f%2fmedia.gqindia.com%2fwp-content%2fuploads%2f2014%2f12%2fjunoon-1920x1080.jpg&ehk=73DHgLnWwx7DgI9L2i%2fzkzS1%2fFZf7hEmxv6ZRvXrXa0%3d&risl=&pid=ImgRaw&r=0');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+    
+}
+.addcolor{
+    
+   background-color:  rgba(0, 0, 0, 0.7);
+    height: 85vh;
+    width: 100%;
+
+}
+.editheading{
+    color: #FEA116;
+   
+}
+.borderstyle{
+    border-bottom:1px black dotted;
+    width: 80%;
+}
+.customecolor{
+    background-color: #1C1C1C;
+}

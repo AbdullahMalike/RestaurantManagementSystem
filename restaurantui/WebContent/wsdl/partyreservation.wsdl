@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://restaurantsystem" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://restaurantsystem" xmlns:intf="http://restaurantsystem" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://restaurantsystem" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="party">
+    <complexType>
+     <sequence>
+      <element name="Name" type="xsd:string"/>
+      <element name="Members" type="xsd:int"/>
+      <element name="Date" type="xsd:string"/>
+      <element name="TotalSeats" type="xsd:int"/>
+      <element name="PartyType" type="xsd:string"/>
+      <element name="Time" type="xsd:string"/>
+      <element name="PhoneNumber" type="xsd:long"/>
+      <element name="ID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="partyResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="partyRequest">
+
+      <wsdl:part element="impl:party" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="partyResponse">
+
+      <wsdl:part element="impl:partyResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="partyreservation">
+
+      <wsdl:operation name="party">
+
+         <wsdl:input message="impl:partyRequest" name="partyRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:partyResponse" name="partyResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="partyreservationSoapBinding" type="impl:partyreservation">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="party">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="partyRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="partyResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="partyreservationService">
+
+      <wsdl:port binding="impl:partyreservationSoapBinding" name="partyreservation">
+
+         <wsdlsoap:address location="http://localhost:8081/restaurant/services/partyreservation"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
