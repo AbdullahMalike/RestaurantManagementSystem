@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
   <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -32,11 +32,11 @@
    <ns2:parameter qname="ns1:ID" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns2:operation>
   <ns1:parameter name="allowedMethods" value="adduser"/>
-  <ns1:parameter name="wsdlPortType" value="userregister"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="schemaQualified" value="http://restaurantsystem"/>
-  <ns1:parameter name="wsdlServicePort" value="userregister"/>
+  <ns1:parameter name="wsdlPortType" value="userregister"/>
   <ns1:parameter name="className" value="restaurantsystem.userregister"/>
+  <ns1:parameter name="wsdlServicePort" value="userregister"/>
+  <ns1:parameter name="schemaQualified" value="http://restaurantsystem"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://restaurantsystem"/>
   <ns1:parameter name="wsdlServiceElement" value="userregisterService"/>
  </ns1:service>
@@ -62,11 +62,11 @@
    <ns1:parameter qname="ns2:ID" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="party"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="partyreservation"/>
-  <ns1:parameter name="className" value="restaurantsystem.partyreservation"/>
-  <ns1:parameter name="wsdlServicePort" value="partyreservation"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="schemaQualified" value="http://restaurantsystem"/>
+  <ns1:parameter name="wsdlServicePort" value="partyreservation"/>
+  <ns1:parameter name="className" value="restaurantsystem.partyreservation"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://restaurantsystem"/>
   <ns1:parameter name="wsdlServiceElement" value="partyreservationService"/>
  </ns1:service>
@@ -79,13 +79,31 @@
    <ns1:parameter qname="ns3:ID" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="tableres"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="tablereservation"/>
-  <ns1:parameter name="className" value="restaurantsystem.tablereservation"/>
-  <ns1:parameter name="wsdlServicePort" value="tablereservation"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="schemaQualified" value="http://restaurantsystem"/>
+  <ns1:parameter name="wsdlServicePort" value="tablereservation"/>
+  <ns1:parameter name="className" value="restaurantsystem.tablereservation"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://restaurantsystem"/>
   <ns1:parameter name="wsdlServiceElement" value="tablereservationService"/>
+ </ns1:service>
+ <ns1:service name="userinformation" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="adduser" qname="ns4:adduser" soapAction="" xmlns:ns4="http://restaurantsystem">
+   <ns1:parameter qname="ns4:Name" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns4:Number" type="xsd:long" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns4:Address" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns4:AreaName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns4:Email" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns4:ID" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="adduser"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="userinformation"/>
+  <ns1:parameter name="className" value="restaurantsystem.userinformation"/>
+  <ns1:parameter name="wsdlServicePort" value="userinformation"/>
+  <ns1:parameter name="schemaQualified" value="http://restaurantsystem"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://restaurantsystem"/>
+  <ns1:parameter name="wsdlServiceElement" value="userinformationService"/>
  </ns1:service>
  <ns1:transport name="http">
   <ns1:requestFlow>

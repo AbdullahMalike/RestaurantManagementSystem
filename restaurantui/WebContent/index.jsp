@@ -31,7 +31,9 @@
                 <a class="nav-link" href="shandar.jsp">Shandar Shinwari</a>
               </li>
               </ul>
-         
+          <li class="nav-item">
+                <a class="nav-link" href="userinformation.jsp">Registration</a>
+              </li>
           </div>
         </div>
       </nav> 
