@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://restaurantsystem" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://restaurantsystem" xmlns:intf="http://restaurantsystem" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://restaurantsystem" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="adduser">
+    <complexType>
+     <sequence>
+      <element name="Name" type="xsd:string"/>
+      <element name="Number" type="xsd:long"/>
+      <element name="Address" type="xsd:string"/>
+      <element name="AreaName" type="xsd:string"/>
+      <element name="Email" type="xsd:string"/>
+      <element name="ID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="adduserResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="adduserResponse">
+
+      <wsdl:part element="impl:adduserResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="adduserRequest">
+
+      <wsdl:part element="impl:adduser" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="userinformation">
+
+      <wsdl:operation name="adduser">
+
+         <wsdl:input message="impl:adduserRequest" name="adduserRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:adduserResponse" name="adduserResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="userinformationSoapBinding" type="impl:userinformation">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="adduser">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="adduserRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="adduserResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="userinformationService">
+
+      <wsdl:port binding="impl:userinformationSoapBinding" name="userinformation">
+
+         <wsdlsoap:address location="http://localhost:8081/restaurant/services/userinformation"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
